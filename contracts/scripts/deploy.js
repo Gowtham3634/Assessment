@@ -6,9 +6,9 @@ async function main() {
 
   const Counter = await hre.ethers.getContractFactory("Counter");
   const counter = await Counter.deploy();
-  await counter.waitForDeployment();
+  await counter.deployed();
 
-  const address = await counter.getAddress();
+  const address = counter.address;
   console.log("Counter deployed to:", address);
   console.log("Save this address for the frontend (e.g. NEXT_PUBLIC_CONTRACT_ADDRESS).");
 }
